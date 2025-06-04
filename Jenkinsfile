@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git credentialsId: 'github-token', url: 'https://github.com/omerH299/simple-web-chart.git'
+                git credentialsId: 'github-token', url: 'https://github.com/omerH299/simple-web.git'
             }
         }
         stage('Set Context') {
