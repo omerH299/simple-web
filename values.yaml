@@ -62,18 +62,15 @@ ingress:
   enabled: true
   className: nginx
   annotations:
+    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+    service.beta.kubernetes.io/azure-load-balancer-internal: "false"
   hosts:
     - host: ""
       paths:
-        - path: /omerhi
+        - path: /
           pathType: Prefix
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  tls: []  # Optional: configure if you need TLS
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -132,8 +129,8 @@ keda:
     - type: cron
       metadata:
         timezone: Asia/Jerusalem
-        start: "27 20 * * *"
-        end: "45 20 * * *"
+        start: "27 11 * * *"
+        end: "45 00 * * *"
         desiredReplicas: "1"
   scaledObject:
     pollingInterval: 30
