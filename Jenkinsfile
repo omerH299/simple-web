@@ -15,7 +15,7 @@ pipeline {
         stage('Set Context') {
             steps {
                 sh 'az login -i'
-                sh 'az aks get-credentials -n devops-interview-aks -g devops-interview-rg'
+                sh 'az aks get-credentials -n devops-interview-aks -g devops-interview-rg --overwrite-existing'
                 sh 'kubelogin convert-kubeconfig -l msi'
             }
         }
