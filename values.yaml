@@ -68,7 +68,7 @@ ingress:
   hosts:
     - host: ""
       paths:
-        - path: /
+        - path: /omerhi
           pathType: Prefix
   tls: []  # Optional: configure if you need TLS
 
@@ -129,8 +129,8 @@ keda:
     - type: cron
       metadata:
         timezone: Asia/Jerusalem
-        start: "27 11 * * *"
-        end: "45 00 * * *"
+        start: "00 08 * * *"
+        end: "00 00 * * *"
         desiredReplicas: "1"
   scaledObject:
     pollingInterval: 30
